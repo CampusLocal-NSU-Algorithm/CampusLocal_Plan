@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#1a1d21;background:#f7f8fa;-webkit-font-smoothing:antialiased;}
+    a{color:#2f6df0;text-decoration:none;} a:hover{color:#1f4fc4;}
+    h1,h2,h3,p{margin:0;}
+  </style>
+</helmet>
+
+<div style="width:1440px;height:900px;display:flex;flex-direction:column;background:#f7f8fa;overflow:hidden;">
+
+  <!-- nav -->
+  <header style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 24px;background:#fff;border-bottom:1px solid #e6e9ee;flex-shrink:0;">
+    <div style="display:flex;align-items:center;gap:28px;">
+      <div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z" stroke="#2f6df0" stroke-width="1.7"/><circle cx="12" cy="10" r="2.4" stroke="#2f6df0" stroke-width="1.7"/></svg>
+        캠퍼스로컬
+      </div>
+      <nav style="display:flex;gap:20px;font-size:14px;color:#5b6470;">
+        <span style="color:#2f6df0;font-weight:600;">지도</span><span>추천</span>
+      </nav>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:#5b6470;">
+      <div style="width:28px;height:28px;border-radius:999px;background:#dbe3ec;"></div>
+      김성환 ▾
+    </div>
+  </header>
+
+  <div style="flex:1;display:flex;min-height:0;">
+
+    <!-- filter sidebar -->
+    <aside style="width:296px;flex-shrink:0;background:#fff;border-right:1px solid #e6e9ee;display:flex;flex-direction:column;">
+      <div style="flex:1;overflow:auto;padding:20px;">
+        <div style="font-size:15px;font-weight:700;margin-bottom:16px;">성환읍 전월세</div>
+
+        <div style="font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:8px;">거래 유형</div>
+        <div style="display:flex;gap:6px;margin-bottom:20px;">
+          <div style="flex:1;text-align:center;font-size:13px;font-weight:600;padding:8px 0;border-radius:8px;background:#2f6df0;color:#fff;">월세</div>
+          <div style="flex:1;text-align:center;font-size:13px;padding:8px 0;border-radius:8px;background:#f1f3f6;color:#5b6470;">전세</div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:10px;"><span>보증금</span><span style="color:#1a1d21;">300만 ~ 1,000만</span></div>
+        <div style="position:relative;height:4px;background:#e6e9ee;border-radius:2px;margin:0 6px 22px;">
+          <div style="position:absolute;left:15%;right:35%;top:0;height:4px;background:#2f6df0;border-radius:2px;"></div>
+          <div style="position:absolute;left:15%;top:-6px;width:16px;height:16px;border-radius:999px;background:#fff;border:2px solid #2f6df0;margin-left:-8px;"></div>
+          <div style="position:absolute;left:65%;top:-6px;width:16px;height:16px;border-radius:999px;background:#fff;border:2px solid #2f6df0;margin-left:-8px;"></div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:10px;"><span>월세</span><span style="color:#1a1d21;">20만 ~ 40만</span></div>
+        <div style="position:relative;height:4px;background:#e6e9ee;border-radius:2px;margin:0 6px 22px;">
+          <div style="position:absolute;left:25%;right:42%;top:0;height:4px;background:#2f6df0;border-radius:2px;"></div>
+          <div style="position:absolute;left:25%;top:-6px;width:16px;height:16px;border-radius:999px;background:#fff;border:2px solid #2f6df0;margin-left:-8px;"></div>
+          <div style="position:absolute;left:58%;top:-6px;width:16px;height:16px;border-radius:999px;background:#fff;border:2px solid #2f6df0;margin-left:-8px;"></div>
+        </div>
+
+        <div style="font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:10px;">방 유형</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;font-size:13px;">
+          <label style="display:flex;align-items:center;gap:9px;"><span style="width:16px;height:16px;border-radius:4px;background:#2f6df0;display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>원룸 (단독·다가구)</label>
+          <label style="display:flex;align-items:center;gap:9px;"><span style="width:16px;height:16px;border-radius:4px;background:#2f6df0;display:flex;align-items:center;justify-content:center;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>빌라 (연립·다세대)</label>
+          <label style="display:flex;align-items:center;gap:9px;color:#5b6470;"><span style="width:16px;height:16px;border-radius:4px;border:1.5px solid #c7cdd6;"></span>오피스텔</label>
+        </div>
+
+        <div style="font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:10px;">최대 통학시간</div>
+        <div style="display:flex;gap:6px;margin-bottom:20px;">
+          <div style="flex:1;text-align:center;font-size:12.5px;padding:7px 0;border-radius:999px;background:#f1f3f6;color:#5b6470;">10분</div>
+          <div style="flex:1;text-align:center;font-size:12.5px;font-weight:600;padding:7px 0;border-radius:999px;background:#eaf1fe;color:#2f6df0;border:1px solid #2f6df0;">20분</div>
+          <div style="flex:1;text-align:center;font-size:12.5px;padding:7px 0;border-radius:999px;background:#f1f3f6;color:#5b6470;">30분</div>
+        </div>
+
+        <div style="font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:10px;">지도에 인프라 표시</div>
+        <div style="display:flex;flex-direction:column;gap:10px;font-size:13px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">편의점<span style="width:34px;height:20px;border-radius:999px;background:#2f6df0;position:relative;"><span style="position:absolute;right:2px;top:2px;width:16px;height:16px;border-radius:999px;background:#fff;"></span></span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;">카페<span style="width:34px;height:20px;border-radius:999px;background:#e6e9ee;position:relative;"><span style="position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:999px;background:#fff;"></span></span></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;">병원·약국<span style="width:34px;height:20px;border-radius:999px;background:#e6e9ee;position:relative;"><span style="position:absolute;left:2px;top:2px;width:16px;height:16px;border-radius:999px;background:#fff;"></span></span></div>
+        </div>
+      </div>
+      <div style="padding:14px 20px;border-top:1px solid #e6e9ee;">
+        <div style="background:#2f6df0;color:#fff;font-weight:600;font-size:14px;text-align:center;padding:12px 0;border-radius:10px;">필터 적용</div>
+      </div>
+    </aside>
+
+    <!-- map -->
+    <div style="flex:1;position:relative;min-width:0;">
+      <svg width="100%" height="100%" viewBox="0 0 760 780" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;">
+        <rect width="760" height="780" fill="#eef1f5"/>
+        <g stroke="#dde3ea" stroke-width="11" fill="none">
+          <path d="M-20 150 H780"/><path d="M-20 380 H780"/><path d="M-20 600 H780"/>
+          <path d="M150 -20 V800"/><path d="M400 -20 V800"/><path d="M600 -20 V800"/>
+          <path d="M-20 60 L360 800"/>
+        </g>
+        <rect x="430" y="410" width="170" height="130" fill="#e3efe4"/>
+        <path d="M-20 680 C 200 630, 340 760, 800 700" stroke="#dbe7f3" stroke-width="18" fill="none"/>
+      </svg>
+
+      <!-- search -->
+      <div style="position:absolute;left:20px;top:16px;display:flex;align-items:center;gap:8px;width:300px;background:#fff;border:1px solid #e6e9ee;border-radius:10px;padding:11px 14px;box-shadow:0 4px 14px rgba(20,23,33,.1);font-size:13.5px;color:#8b95a3;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#8b95a3" stroke-width="1.8"/><path d="m20 20-3.5-3.5" stroke="#8b95a3" stroke-width="1.8" stroke-linecap="round"/></svg>
+        성환읍에서 건물명·지번 검색
+      </div>
+
+      <!-- markers -->
+      <div style="position:absolute;left:170px;top:150px;background:#fff;border:1px solid #e6e9ee;border-radius:9px;padding:5px 10px;font-size:12.5px;font-weight:700;box-shadow:0 3px 8px rgba(0,0,0,.12);">월 35</div>
+      <div style="position:absolute;left:300px;top:250px;background:#fff;border:1px solid #e6e9ee;border-radius:9px;padding:5px 10px;font-size:12.5px;font-weight:700;box-shadow:0 3px 8px rgba(0,0,0,.12);">월 28</div>
+      <div style="position:absolute;left:250px;top:400px;background:#2f6df0;color:#fff;border-radius:9px;padding:6px 11px;font-size:12.5px;font-weight:700;box-shadow:0 6px 16px rgba(47,109,240,.4);">월 33</div>
+      <div style="position:absolute;left:430px;top:320px;background:#fff;border:1px solid #e6e9ee;border-radius:9px;padding:5px 10px;font-size:12.5px;font-weight:700;box-shadow:0 3px 8px rgba(0,0,0,.12);">보증 500</div>
+      <div style="position:absolute;left:150px;top:520px;background:#fff;border:1px solid #e6e9ee;border-radius:9px;padding:5px 10px;font-size:12.5px;font-weight:700;box-shadow:0 3px 8px rgba(0,0,0,.12);">월 26</div>
+      <div style="position:absolute;left:500px;top:210px;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:999px;background:#12b886;color:#fff;font-size:12px;font-weight:700;box-shadow:0 4px 12px rgba(18,184,134,.35);">12</div>
+
+      <!-- school marker -->
+      <div style="position:absolute;left:470px;top:430px;display:flex;align-items:center;gap:6px;background:#1a1d21;color:#fff;border-radius:999px;padding:7px 13px;font-size:12px;font-weight:600;box-shadow:0 6px 16px rgba(0,0,0,.28);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 4 2 9l10 5 10-5-10-5Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5" stroke="#fff" stroke-width="1.6"/></svg>
+        남서울대학교
+      </div>
+
+      <!-- infra dot legend -->
+      <div style="position:absolute;left:20px;bottom:20px;background:#fff;border:1px solid #e6e9ee;border-radius:10px;padding:10px 12px;font-size:11.5px;color:#5b6470;box-shadow:0 4px 14px rgba(20,23,33,.08);display:flex;gap:14px;">
+        <span style="display:flex;align-items:center;gap:5px;"><span style="width:8px;height:8px;border-radius:999px;background:#2f6df0;"></span>편의점</span>
+        <span>지도 위 가격은 최근 6개월 실거래가 기준</span>
+      </div>
+
+      <!-- zoom -->
+      <div style="position:absolute;right:16px;bottom:20px;display:flex;flex-direction:column;background:#fff;border:1px solid #e6e9ee;border-radius:8px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.1);">
+        <div style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:18px;border-bottom:1px solid #e6e9ee;">+</div>
+        <div style="width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:18px;">−</div>
+      </div>
+    </div>
+
+    <!-- results -->
+    <aside style="width:372px;flex-shrink:0;background:#fff;border-left:1px solid #e6e9ee;display:flex;flex-direction:column;">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #e6e9ee;">
+        <div style="font-size:14px;font-weight:700;">매물 34곳</div>
+        <div style="font-size:12.5px;color:#5b6470;display:flex;align-items:center;gap:4px;">통학 빠른 순 <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="m6 9 6 6 6-6" stroke="#5b6470" stroke-width="2" stroke-linecap="round"/></svg></div>
+      </div>
+      <div style="flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:12px;">
+
+        <!-- selected card -->
+        <div style="border:1.5px solid #2f6df0;border-radius:12px;padding:14px;position:relative;background:#fbfcff;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#2f6df0" style="position:absolute;right:12px;top:12px;"><path d="M12 21s-7-4.6-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.4-7 10-7 10Z"/></svg>
+          <div style="display:flex;gap:6px;margin-bottom:8px;">
+            <span style="font-size:11px;font-weight:600;color:#2f6df0;background:#eaf1fe;padding:2px 7px;border-radius:5px;">빌라</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;">행복빌라 · 성환리</div>
+          <div style="font-size:14px;font-weight:600;margin-top:3px;">보증 300 / 월 33</div>
+          <div style="font-size:12px;color:#8b95a3;margin-top:5px;">전용 19㎡ · 3층 · 2016년</div>
+          <div style="display:flex;gap:14px;margin-top:9px;font-size:12.5px;color:#5b6470;">
+            <span style="display:flex;align-items:center;gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="13" cy="4.5" r="1.6" stroke="#5b6470" stroke-width="1.6"/><path d="M11 21l1.5-6-3-2 1-6 3.5 2 3 1M9.5 13l-2.5 8" stroke="#5b6470" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 도보 7분</span>
+            <span style="display:flex;align-items:center;gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="13" rx="3" stroke="#5b6470" stroke-width="1.6"/><path d="M4 12h16M8 20l1-3M16 20l-1-3" stroke="#5b6470" stroke-width="1.6" stroke-linecap="round"/></svg> 버스 12분</span>
+            <span style="display:flex;align-items:center;gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.9 7.2 18l.9-5.4L4.2 8.7l5.4-.8L12 3Z"/></svg> 4.2 (6)</span>
+          </div>
+        </div>
+
+        <!-- card with approx badge -->
+        <div style="border:1px solid #e6e9ee;border-radius:12px;padding:14px;position:relative;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="position:absolute;right:12px;top:12px;"><path d="M12 21s-7-4.6-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.4-7 10-7 10Z" stroke="#c7cdd6" stroke-width="1.7"/></svg>
+          <div style="display:flex;gap:6px;margin-bottom:8px;">
+            <span style="font-size:11px;font-weight:600;color:#5b6470;background:#f1f3f6;padding:2px 7px;border-radius:5px;">원룸</span>
+            <span style="font-size:11px;font-weight:600;color:#f08c00;background:#fff4e2;padding:2px 7px;border-radius:5px;">위치 근사</span>
+          </div>
+          <div style="font-size:15px;font-weight:700;">성환리 단독주택</div>
+          <div style="font-size:14px;font-weight:600;margin-top:3px;">보증 200 / 월 28</div>
+          <div style="font-size:12px;color:#8b95a3;margin-top:5px;">전용 16㎡ · 2층 · 2009년</div>
+          <div style="display:flex;gap:14px;margin-top:9px;font-size:12.5px;color:#5b6470;">
+            <span style="display:flex;align-items:center;gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="13" cy="4.5" r="1.6" stroke="#5b6470" stroke-width="1.6"/><path d="M11 21l1.5-6-3-2 1-6 3.5 2 3 1M9.5 13l-2.5 8" stroke="#5b6470" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 도보 11분</span>
+            <span style="display:flex;align-items:center;gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#c7cdd6"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.9 7.2 18l.9-5.4L4.2 8.7l5.4-.8L12 3Z"/></svg> 후기 없음</span>
+          </div>
+        </div>
+
+        <!-- more cards -->
+        <div style="border:1px solid #e6e9ee;border-radius:12px;padding:14px;position:relative;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="position:absolute;right:12px;top:12px;"><path d="M12 21s-7-4.6-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.4-7 10-7 10Z" stroke="#c7cdd6" stroke-width="1.7"/></svg>
+          <div style="display:flex;gap:6px;margin-bottom:8px;"><span style="font-size:11px;font-weight:600;color:#2f6df0;background:#eaf1fe;padding:2px 7px;border-radius:5px;">오피스텔</span></div>
+          <div style="font-size:15px;font-weight:700;">성환역 리브에스텔</div>
+          <div style="font-size:14px;font-weight:600;margin-top:3px;">보증 500 / 월 40</div>
+          <div style="font-size:12px;color:#8b95a3;margin-top:5px;">전용 23㎡ · 6층 · 2020년</div>
+          <div style="display:flex;gap:14px;margin-top:9px;font-size:12.5px;color:#5b6470;">
+            <span style="display:flex;align-items:center;gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="13" cy="4.5" r="1.6" stroke="#5b6470" stroke-width="1.6"/><path d="M11 21l1.5-6-3-2 1-6 3.5 2 3 1M9.5 13l-2.5 8" stroke="#5b6470" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> 도보 15분</span>
+            <span style="display:flex;align-items:center;gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="13" rx="3" stroke="#5b6470" stroke-width="1.6"/><path d="M4 12h16M8 20l1-3M16 20l-1-3" stroke="#5b6470" stroke-width="1.6" stroke-linecap="round"/></svg> 버스 9분</span>
+            <span style="display:flex;align-items:center;gap:4px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="#f5a623"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.9 7.2 18l.9-5.4L4.2 8.7l5.4-.8L12 3Z"/></svg> 4.6 (3)</span>
+          </div>
+        </div>
+
+      </div>
+    </aside>
+  </div>
+</div>
+<script data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

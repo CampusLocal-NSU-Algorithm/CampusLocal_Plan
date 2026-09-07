@@ -1,0 +1,20 @@
+{
+  "pages": [
+    { "id": "screens", "name": "화면 목업" },
+    { "id": "flow", "name": "화면 흐름" }
+  ],
+  "artboards": [
+    { "file": "Landing.dc.html",        "page": "screens", "x": 0,    "y": 0,    "w": 1440, "h": 1260, "title": "랜딩 /" },
+    { "file": "Main.dc.html",           "page": "screens", "x": 1560, "y": 0,    "w": 1440, "h": 920,  "title": "지도 /map" },
+    { "file": "BuildingDetail.dc.html", "page": "screens", "x": 3120, "y": 0,    "w": 1440, "h": 2360, "title": "건물 상세 /building/:id", "print": "flow" },
+    { "file": "RecommendInput.dc.html", "page": "screens", "x": 0,    "y": 2560, "w": 1440, "h": 1440, "title": "추천 입력 /recommend" },
+    { "file": "RecommendResult.dc.html","page": "screens", "x": 1560, "y": 2560, "w": 1440, "h": 960,  "title": "추천 결과 /recommend" },
+    { "file": "MyPage.dc.html",         "page": "screens", "x": 3120, "y": 2560, "w": 1440, "h": 880,  "title": "마이페이지 /mypage" },
+    { "file": "Flow.dc.html",           "page": "flow",    "x": 0,    "y": 0,    "w": 1280, "h": 560,  "title": "화면 흐름" }
+  ],
+  "annotations": [
+    { "id": "screens-note", "page": "screens", "x": 0, "y": -120, "w": 720, "text": "캠퍼스로컬 — 남서울대 자취방 추천 서비스 화면 목업.\n데스크톱 기준으로 그렸고 실제 서비스는 모바일 우선 반응형으로 만듭니다. 화면 간 이동은 '화면 흐름' 페이지 참고." },
+    { "id": "flow-note", "page": "flow", "x": 0, "y": -104, "w": 620, "text": "화면 간 이동 흐름 요약. 각 화면의 실제 목업은 '화면 목업' 페이지에 있습니다." }
+  ],
+  "launch": { "view": "canvas", "page": "screens" }
+}

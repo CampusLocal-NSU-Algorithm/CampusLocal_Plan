@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#1a1d21;background:#f7f8fa;-webkit-font-smoothing:antialiased;}
+    a{color:#2f6df0;text-decoration:none;} a:hover{color:#1f4fc4;}
+    h1,h2,h3,p{margin:0;}
+  </style>
+</helmet>
+
+<div style="width:1440px;height:940px;background:#f7f8fa;display:flex;flex-direction:column;overflow:hidden;">
+  <header style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 40px;background:#fff;border-bottom:1px solid #e6e9ee;flex-shrink:0;">
+    <div style="display:flex;align-items:center;gap:28px;">
+      <div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z" stroke="#2f6df0" stroke-width="1.7"/><circle cx="12" cy="10" r="2.4" stroke="#2f6df0" stroke-width="1.7"/></svg>
+        캠퍼스로컬
+      </div>
+      <nav style="display:flex;gap:20px;font-size:14px;color:#5b6470;"><span>지도</span><span style="color:#2f6df0;font-weight:600;">추천</span></nav>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:#5b6470;"><div style="width:28px;height:28px;border-radius:999px;background:#dbe3ec;"></div>김성환 ▾</div>
+  </header>
+
+  <div style="padding:24px 40px 12px;flex-shrink:0;">
+    <div style="display:flex;align-items:center;justify-content:space-between;">
+      <h1 style="font-size:20px;font-weight:700;">조건에 맞는 매물 12곳</h1>
+      <span style="font-size:13px;color:#2f6df0;font-weight:600;">조건 수정</span>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;">
+      <span style="font-size:12px;color:#5b6470;background:#eef1f5;padding:5px 10px;border-radius:999px;">보증금 ≤ 1,000만</span>
+      <span style="font-size:12px;color:#5b6470;background:#eef1f5;padding:5px 10px;border-radius:999px;">월세 ≤ 40만</span>
+      <span style="font-size:12px;color:#5b6470;background:#eef1f5;padding:5px 10px;border-radius:999px;">통학 ≤ 20분</span>
+      <span style="font-size:12px;color:#5b6470;background:#eef1f5;padding:5px 10px;border-radius:999px;">원룸 · 빌라</span>
+      <span style="font-size:12px;color:#5b6470;background:#eef1f5;padding:5px 10px;border-radius:999px;">편의점 · 조용한 동네</span>
+    </div>
+  </div>
+
+  <div style="flex:1;display:flex;gap:24px;padding:12px 40px 32px;min-height:0;">
+
+    <!-- ranked list -->
+    <div style="flex:1;overflow:auto;display:flex;flex-direction:column;gap:14px;min-width:0;">
+
+      <div style="background:#fff;border:1px solid #e6e9ee;border-radius:14px;padding:20px;display:flex;gap:18px;">
+        <div style="width:34px;height:34px;border-radius:10px;background:#1a1d21;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <b style="font-size:16px;">행복빌라 · 성환리</b>
+            <span style="font-size:13px;font-weight:700;color:#12b886;background:#e4f7f1;padding:4px 10px;border-radius:8px;">92점</span>
+          </div>
+          <div style="font-size:14px;font-weight:600;margin-top:4px;">보증 300 / 월 33 · 빌라 · 전용 19㎡</div>
+          <div style="display:flex;gap:14px;margin-top:8px;font-size:12.5px;color:#5b6470;">
+            <span>도보 7분</span><span>버스 12분</span><span style="color:#f5a623;">★ 4.2 (6)</span>
+          </div>
+          <div style="font-size:12.5px;color:#2f6df0;margin-top:10px;background:#f5f8ff;padding:8px 12px;border-radius:8px;">왜 추천? 예산보다 월세 7만원 여유 · 도보 7분 · 편의점 3곳 · 조용한 동네</div>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#2f6df0" style="flex-shrink:0;"><path d="M12 21s-7-4.6-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.4-7 10-7 10Z"/></svg>
+      </div>
+
+      <div style="background:#fff;border:1px solid #e6e9ee;border-radius:14px;padding:20px;display:flex;gap:18px;">
+        <div style="width:34px;height:34px;border-radius:10px;background:#5b6470;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <b style="font-size:16px;">성환리 원룸주택</b>
+            <span style="font-size:13px;font-weight:700;color:#12b886;background:#e4f7f1;padding:4px 10px;border-radius:8px;">86점</span>
+          </div>
+          <div style="font-size:14px;font-weight:600;margin-top:4px;">보증 200 / 월 30 · 원룸 · 전용 17㎡</div>
+          <div style="display:flex;gap:14px;margin-top:8px;font-size:12.5px;color:#5b6470;">
+            <span>도보 10분</span><span>버스 8분</span><span style="color:#8b95a3;">후기 없음</span>
+          </div>
+          <div style="font-size:12.5px;color:#2f6df0;margin-top:10px;background:#f5f8ff;padding:8px 12px;border-radius:8px;">왜 추천? 예산보다 월세 10만원 여유 · 통학 10분 · 조용한 골목</div>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M12 21s-7-4.6-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.4-7 10-7 10Z" stroke="#c7cdd6" stroke-width="1.7"/></svg>
+      </div>
+
+      <div style="background:#fff;border:1px solid #e6e9ee;border-radius:14px;padding:20px;display:flex;gap:18px;">
+        <div style="width:34px;height:34px;border-radius:10px;background:#5b6470;color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+        <div style="flex:1;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <b style="font-size:16px;">성환역 리브에스텔</b>
+            <span style="font-size:13px;font-weight:700;color:#5b6470;background:#eef1f5;padding:4px 10px;border-radius:8px;">78점</span>
+          </div>
+          <div style="font-size:14px;font-weight:600;margin-top:4px;">보증 500 / 월 40 · 오피스텔 · 전용 23㎡</div>
+          <div style="display:flex;gap:14px;margin-top:8px;font-size:12.5px;color:#5b6470;">
+            <span>도보 15분</span><span>버스 9분</span><span style="color:#f5a623;">★ 4.6 (3)</span>
+          </div>
+          <div style="font-size:12.5px;color:#2f6df0;margin-top:10px;background:#f5f8ff;padding:8px 12px;border-radius:8px;">왜 추천? 신축 · 후기 평점 높음 · 다만 예산 상한이라 가격 여유 적음</div>
+        </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;"><path d="M12 21s-7-4.6-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.4-7 10-7 10Z" stroke="#c7cdd6" stroke-width="1.7"/></svg>
+      </div>
+
+      <div style="text-align:center;font-size:12.5px;color:#8b95a3;padding:6px;">점수 = 가격 여유 35% + 통학 30% + 인프라 20% + 후기 15%</div>
+    </div>
+
+    <!-- mini map -->
+    <div style="width:420px;flex-shrink:0;border-radius:14px;overflow:hidden;position:relative;border:1px solid #e6e9ee;">
+      <svg width="100%" height="100%" viewBox="0 0 420 560" preserveAspectRatio="xMidYMid slice">
+        <rect width="420" height="560" fill="#eef1f5"/>
+        <g stroke="#dde3ea" stroke-width="10" fill="none"><path d="M-20 130 H440"/><path d="M-20 320 H440"/><path d="M120 -20 V580"/><path d="M300 -20 V580"/></g>
+        <rect x="250" y="330" width="110" height="90" fill="#e3efe4"/>
+      </svg>
+      <div style="position:absolute;left:120px;top:120px;width:26px;height:26px;border-radius:999px;background:#1a1d21;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.3);">1</div>
+      <div style="position:absolute;left:210px;top:240px;width:26px;height:26px;border-radius:999px;background:#5b6470;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.25);">2</div>
+      <div style="position:absolute;left:150px;top:360px;width:26px;height:26px;border-radius:999px;background:#5b6470;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.25);">3</div>
+      <div style="position:absolute;left:270px;top:300px;display:flex;align-items:center;gap:5px;background:#12b886;color:#fff;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:600;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 4 2 9l10 5 10-5-10-5Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>남서울대
+      </div>
+    </div>
+  </div>
+</div>
+<script data-dc-script data-props='{"$preview":{"width":1440,"height":940}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

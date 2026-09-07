@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'IBM Plex Sans KR','Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#1a1d21;background:#f7f8fa;-webkit-font-smoothing:antialiased;}
+    a{color:#2f6df0;text-decoration:none;} a:hover{color:#1f4fc4;}
+    h1,h2,h3,p{margin:0;}
+  </style>
+</helmet>
+
+<div style="width:1440px;background:#f7f8fa;">
+  <header style="display:flex;align-items:center;justify-content:space-between;height:60px;padding:0 40px;background:#fff;border-bottom:1px solid #e6e9ee;">
+    <div style="display:flex;align-items:center;gap:28px;">
+      <div style="display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z" stroke="#2f6df0" stroke-width="1.7"/><circle cx="12" cy="10" r="2.4" stroke="#2f6df0" stroke-width="1.7"/></svg>
+        캠퍼스로컬
+      </div>
+      <nav style="display:flex;gap:20px;font-size:14px;color:#5b6470;"><span>지도</span><span style="color:#2f6df0;font-weight:600;">추천</span></nav>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:13.5px;color:#5b6470;"><div style="width:28px;height:28px;border-radius:999px;background:#dbe3ec;"></div>김성환 ▾</div>
+  </header>
+
+  <div style="max-width:720px;margin:0 auto;padding:44px 40px 64px;">
+    <h1 style="font-size:26px;font-weight:700;">나에게 맞는 자취방 찾기</h1>
+    <p style="font-size:14px;color:#5b6470;margin-top:10px;line-height:1.6;">예산과 통학 조건을 알려주시면 성환읍 매물을 점수로 정렬해 드려요. 3분이면 충분합니다.</p>
+
+    <div style="background:#fff;border:1px solid #e6e9ee;border-radius:16px;padding:32px;margin-top:28px;display:flex;flex-direction:column;gap:32px;">
+
+      <!-- step 1 -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <span style="width:24px;height:24px;border-radius:999px;background:#2f6df0;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;">1</span>
+          <b style="font-size:15px;">예산</b>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:10px;"><span>보증금 최대</span><span style="color:#1a1d21;">1,000만원</span></div>
+        <div style="position:relative;height:4px;background:#e6e9ee;border-radius:2px;margin:0 6px 22px;">
+          <div style="position:absolute;left:0;width:50%;top:0;height:4px;background:#2f6df0;border-radius:2px;"></div>
+          <div style="position:absolute;left:50%;top:-6px;width:16px;height:16px;border-radius:999px;background:#fff;border:2px solid #2f6df0;margin-left:-8px;"></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:10px;"><span>월세 최대</span><span style="color:#1a1d21;">40만원</span></div>
+        <div style="position:relative;height:4px;background:#e6e9ee;border-radius:2px;margin:0 6px 4px;">
+          <div style="position:absolute;left:0;width:57%;top:0;height:4px;background:#2f6df0;border-radius:2px;"></div>
+          <div style="position:absolute;left:57%;top:-6px;width:16px;height:16px;border-radius:999px;background:#fff;border:2px solid #2f6df0;margin-left:-8px;"></div>
+        </div>
+      </div>
+
+      <!-- step 2 -->
+      <div style="border-top:1px solid #eef1f5;padding-top:28px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <span style="width:24px;height:24px;border-radius:999px;background:#2f6df0;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;">2</span>
+          <b style="font-size:15px;">통학</b>
+        </div>
+        <div style="font-size:12.5px;font-weight:600;color:#5b6470;margin-bottom:10px;">최대 통학시간</div>
+        <div style="display:flex;gap:8px;margin-bottom:16px;">
+          <div style="font-size:13px;padding:9px 16px;border-radius:999px;background:#f1f3f6;color:#5b6470;">10분</div>
+          <div style="font-size:13px;font-weight:600;padding:9px 16px;border-radius:999px;background:#eaf1fe;color:#2f6df0;border:1px solid #2f6df0;">20분</div>
+          <div style="font-size:13px;padding:9px 16px;border-radius:999px;background:#f1f3f6;color:#5b6470;">30분</div>
+          <div style="font-size:13px;padding:9px 16px;border-radius:999px;background:#f1f3f6;color:#5b6470;">상관없음</div>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <div style="font-size:13px;font-weight:600;padding:9px 16px;border-radius:8px;background:#eaf1fe;color:#2f6df0;border:1px solid #2f6df0;">도보 우선</div>
+          <div style="font-size:13px;padding:9px 16px;border-radius:8px;background:#f1f3f6;color:#5b6470;">대중교통 포함</div>
+        </div>
+      </div>
+
+      <!-- step 3 -->
+      <div style="border-top:1px solid #eef1f5;padding-top:28px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <span style="width:24px;height:24px;border-radius:999px;background:#2f6df0;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;">3</span>
+          <b style="font-size:15px;">방 유형 <span style="font-weight:400;color:#8b95a3;font-size:13px;">복수 선택</span></b>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <div style="flex:1;text-align:center;font-size:13px;font-weight:600;padding:14px 0;border-radius:10px;background:#eaf1fe;color:#2f6df0;border:1.5px solid #2f6df0;">원룸</div>
+          <div style="flex:1;text-align:center;font-size:13px;font-weight:600;padding:14px 0;border-radius:10px;background:#eaf1fe;color:#2f6df0;border:1.5px solid #2f6df0;">빌라</div>
+          <div style="flex:1;text-align:center;font-size:13px;padding:14px 0;border-radius:10px;background:#f7f8fa;color:#5b6470;border:1.5px solid #e6e9ee;">오피스텔</div>
+        </div>
+      </div>
+
+      <!-- step 4 -->
+      <div style="border-top:1px solid #eef1f5;padding-top:28px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+          <span style="width:24px;height:24px;border-radius:999px;background:#2f6df0;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;">4</span>
+          <b style="font-size:15px;">중요하게 보는 것 <span style="font-weight:400;color:#8b95a3;font-size:13px;">복수 선택</span></b>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+          <span style="font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:#eaf1fe;color:#2f6df0;border:1px solid #2f6df0;">편의점 가까움</span>
+          <span style="font-size:13px;padding:8px 14px;border-radius:999px;background:#f1f3f6;color:#5b6470;">카페</span>
+          <span style="font-size:13px;padding:8px 14px;border-radius:999px;background:#f1f3f6;color:#5b6470;">병원·약국</span>
+          <span style="font-size:13px;padding:8px 14px;border-radius:999px;background:#f1f3f6;color:#5b6470;">헬스장</span>
+          <span style="font-size:13px;padding:8px 14px;border-radius:999px;background:#f1f3f6;color:#5b6470;">마트</span>
+          <span style="font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;background:#eaf1fe;color:#2f6df0;border:1px solid #2f6df0;">조용한 동네</span>
+          <span style="font-size:13px;padding:8px 14px;border-radius:999px;background:#f1f3f6;color:#5b6470;">낮은 층수</span>
+        </div>
+      </div>
+
+      <!-- save note -->
+      <div style="border-top:1px solid #eef1f5;padding-top:22px;display:flex;align-items:center;gap:10px;font-size:13px;color:#5b6470;">
+        <span style="width:16px;height:16px;border-radius:4px;background:#2f6df0;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        이 조건을 내 조건으로 저장 <span style="color:#8b95a3;">— 다음 방문 때 바로 불러와요</span>
+      </div>
+
+      <div style="background:#2f6df0;color:#fff;font-weight:700;font-size:15px;text-align:center;padding:15px 0;border-radius:12px;">추천 받기 →</div>
+    </div>
+  </div>
+</div>
+<script data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>
