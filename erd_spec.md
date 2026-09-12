@@ -16,6 +16,9 @@
 | `recent_view` | 사용자의 최근 본 매물 이력 |
 | `compare_history` | 사용자의 매물 비교 세트 이력 |
 | `compare_history_item` | 비교 세트에 포함된 매물 (N:M) |
+| `review` | 매물 리뷰·평점 |
+| `community_post` | 커뮤니티 게시글 |
+| `community_comment` | 커뮤니티 게시글 댓글 |
 
 ## 2. 테이블 상세
 
@@ -139,6 +142,37 @@
 
 - UNIQUE(`compare_history_id`, `property_id`)
 
+### 2.11 `review`
+| 컬럼 | 타입 | PK/FK | NOT NULL | 설명 |
+|---|---|---|---|---|
+| id | BIGINT | PK | Y | 리뷰 ID |
+| property_id | BIGINT | FK → property.id | Y | 대상 매물 |
+| user_id | BIGINT | FK → user.id | Y | 작성자 |
+| rating | TINYINT | - | Y | 별점 (1~5) |
+| content | TEXT | - | Y | 리뷰 내용 |
+| created_at | DATETIME | - | Y | 작성 일시 |
+
+- UNIQUE(`user_id`, `property_id`) — 매물당 사용자 1건의 리뷰만 허용
+
+### 2.12 `community_post`
+| 컬럼 | 타입 | PK/FK | NOT NULL | 설명 |
+|---|---|---|---|---|
+| id | BIGINT | PK | Y | 게시글 ID |
+| user_id | BIGINT | FK → user.id | Y | 작성자 |
+| title | VARCHAR(200) | - | Y | 제목 |
+| content | TEXT | - | Y | 본문 |
+| category | VARCHAR(20) | - | N | 카테고리 (자유/질문/정보 등) |
+| created_at | DATETIME | - | Y | 작성 일시 |
+
+### 2.13 `community_comment`
+| 컬럼 | 타입 | PK/FK | NOT NULL | 설명 |
+|---|---|---|---|---|
+| id | BIGINT | PK | Y | 댓글 ID |
+| post_id | BIGINT | FK → community_post.id | Y | 대상 게시글 |
+| user_id | BIGINT | FK → user.id | Y | 작성자 |
+| content | TEXT | - | Y | 댓글 내용 |
+| created_at | DATETIME | - | Y | 작성 일시 |
+
 ## 3. 테이블 관계 요약
 
 - `region` **1 : N** `property` — 지역 하나에 매물 여러 개
@@ -149,6 +183,11 @@
 - `user` **N : M** `property` (through `recent_view`) — 최근 본 매물
 - `user` **1 : N** `compare_history` — 사용자의 비교 이력
 - `compare_history` **N : M** `property` (through `compare_history_item`) — 비교 세트에 속한 매물들 (2~4개)
+- `property` **1 : N** `review` — 매물 하나에 리뷰 여러 개
+- `user` **1 : N** `review` — 사용자가 작성한 리뷰
+- `user` **1 : N** `community_post` — 사용자가 작성한 게시글
+- `community_post` **1 : N** `community_comment` — 게시글에 달린 댓글
+- `user` **1 : N** `community_comment` — 사용자가 작성한 댓글
 
 ## 4. ER 다이어그램
 
@@ -168,6 +207,12 @@ erDiagram
     PROPERTY ||--o{ COMPARE_HISTORY_ITEM : "비교대상이 된다"
 
     COMPARE_HISTORY ||--o{ COMPARE_HISTORY_ITEM : "포함한다"
+
+    PROPERTY ||--o{ REVIEW : "리뷰가 달린다"
+    USER ||--o{ REVIEW : "작성한다"
+    USER ||--o{ COMMUNITY_POST : "작성한다"
+    COMMUNITY_POST ||--o{ COMMUNITY_COMMENT : "댓글이 달린다"
+    USER ||--o{ COMMUNITY_COMMENT : "작성한다"
 
     USER {
         bigint id PK
@@ -234,9 +279,30 @@ erDiagram
         bigint compare_history_id FK
         bigint property_id FK
     }
+    REVIEW {
+        bigint id PK
+        bigint property_id FK
+        bigint user_id FK
+        tinyint rating
+        text content
+    }
+    COMMUNITY_POST {
+        bigint id PK
+        bigint user_id FK
+        varchar title
+        varchar category
+    }
+    COMMUNITY_COMMENT {
+        bigint id PK
+        bigint post_id FK
+        bigint user_id FK
+        text content
+    }
 ```
 
 ## 5. 추후 고도화 시 고려
 - `property`에 매물 가격/상태 변경 이력을 남기는 별도 히스토리 테이블 (가격 변동 알림 기능용)
 - 크롤링 배치 실행 로그를 위한 `crawl_log` 테이블
 - 편의시설 카테고리 확장 시 `property_amenity.category`를 참조 테이블로 정규화
+- 리뷰 신고/블라인드 처리를 위한 상태 컬럼 또는 별도 테이블
+- 커뮤니티 게시글 조회수·좋아요 집계

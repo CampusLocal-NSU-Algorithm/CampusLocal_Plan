@@ -419,7 +419,190 @@
 
 ---
 
-## 7. 공통 에러 응답 포맷
+## 9. 리뷰 (Review)
+
+### 9.1 매물 리뷰 목록 조회
+`GET /api/v1/properties/{propertyId}/reviews`
+
+04 화면에서 사용. 평균 별점과 리뷰 개수를 함께 반환.
+
+**인증 필요**: 예
+
+**Query Parameter**
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| page | integer | N | 페이지 번호 (기본 1) |
+| size | integer | N | 페이지당 개수 (기본 20) |
+
+**Response 예시**
+```json
+{
+  "propertyId": 101,
+  "averageRating": 4.5,
+  "reviewCount": 12,
+  "reviews": [
+    {
+      "id": 501,
+      "userId": 12,
+      "nickname": "김민수",
+      "rating": 5,
+      "content": "학교랑 가까워서 통학이 정말 편해요.",
+      "createdAt": "2026-08-20T10:00:00+09:00"
+    }
+  ]
+}
+```
+
+### 9.2 리뷰 작성
+`POST /api/v1/properties/{propertyId}/reviews`
+
+04 화면의 "리뷰 작성" 모달에서 사용. 매물당 사용자 1건만 작성 가능.
+
+**인증 필요**: 예
+
+**Request Body**
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| rating | integer | Y | 별점 (1~5) |
+| content | string | Y | 리뷰 내용 |
+
+**Response 예시**
+```json
+{ "id": 501, "propertyId": 101, "rating": 5, "content": "학교랑 가까워서 통학이 정말 편해요.", "createdAt": "2026-08-20T10:00:00+09:00" }
+```
+
+### 9.3 리뷰 삭제
+`DELETE /api/v1/reviews/{reviewId}`
+
+본인이 작성한 리뷰만 삭제 가능 (본인 것이 아니면 403).
+
+**인증 필요**: 예
+
+**Response 예시**
+```json
+{ "message": "리뷰가 삭제되었습니다." }
+```
+
+---
+
+## 10. 커뮤니티 (Community)
+
+### 10.1 게시글 목록 조회
+`GET /api/v1/community/posts`
+
+11 화면에서 사용.
+
+**인증 필요**: 예
+
+**Query Parameter**
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| category | string | N | `자유` \| `질문` \| `정보`. 미지정 시 전체 |
+| page | integer | N | 페이지 번호 (기본 1) |
+| size | integer | N | 페이지당 개수 (기본 20) |
+
+**Response 예시**
+```json
+{
+  "totalCount": 42,
+  "posts": [
+    {
+      "id": 1001,
+      "title": "성환 원룸 계약 전 체크리스트 공유해요",
+      "authorNickname": "김민수",
+      "category": "정보",
+      "commentCount": 8,
+      "createdAt": "2026-09-10T09:00:00+09:00"
+    }
+  ]
+}
+```
+
+### 10.2 게시글 상세 조회
+`GET /api/v1/community/posts/{postId}`
+
+12 화면에서 사용. 댓글 목록을 함께 반환.
+
+**인증 필요**: 예
+
+**Response 예시**
+```json
+{
+  "id": 1001,
+  "title": "성환 원룸 계약 전 체크리스트 공유해요",
+  "content": "성환 원룸 처음 구할 때 등기부등본이랑...",
+  "authorNickname": "김민수",
+  "category": "정보",
+  "createdAt": "2026-09-10T09:00:00+09:00",
+  "comments": [
+    { "id": 2001, "authorNickname": "정하늘", "content": "감사해요! 저도 참고할게요.", "createdAt": "2026-09-10T10:00:00+09:00" }
+  ]
+}
+```
+
+### 10.3 게시글 작성
+`POST /api/v1/community/posts`
+
+13 화면에서 사용.
+
+**인증 필요**: 예
+
+**Request Body**
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| title | string | Y | 제목 |
+| content | string | Y | 본문 |
+| category | string | N | `자유` \| `질문` \| `정보` |
+
+**Response 예시**
+```json
+{ "id": 1001, "title": "성환 원룸 계약 전 체크리스트 공유해요", "category": "정보", "createdAt": "2026-09-10T09:00:00+09:00" }
+```
+
+### 10.4 게시글 삭제
+`DELETE /api/v1/community/posts/{postId}`
+
+본인이 작성한 게시글만 삭제 가능 (본인 것이 아니면 403).
+
+**인증 필요**: 예
+
+**Response 예시**
+```json
+{ "message": "게시글이 삭제되었습니다." }
+```
+
+### 10.5 댓글 작성
+`POST /api/v1/community/posts/{postId}/comments`
+
+12 화면의 댓글 입력창에서 사용.
+
+**인증 필요**: 예
+
+**Request Body**
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| content | string | Y | 댓글 내용 |
+
+**Response 예시**
+```json
+{ "id": 2001, "postId": 1001, "content": "감사해요! 저도 참고할게요.", "createdAt": "2026-09-10T10:00:00+09:00" }
+```
+
+### 10.6 댓글 삭제
+`DELETE /api/v1/community/comments/{commentId}`
+
+본인이 작성한 댓글만 삭제 가능 (본인 것이 아니면 403).
+
+**인증 필요**: 예
+
+**Response 예시**
+```json
+{ "message": "댓글이 삭제되었습니다." }
+```
+
+---
+
+## 11. 공통 에러 응답 포맷
 
 ```json
 {
@@ -440,7 +623,9 @@
 
 ---
 
-## 8. 추후 고도화 시 고려
+## 12. 추후 고도화 시 고려
 - 네이버 부동산 실시간/증분 크롤링 스케줄러 및 매물 변경 감지(가격 변동, 매물 만료 처리)
 - 지도 API(카카오맵/네이버지도) 연동 후 실제 경로 polyline·정확 좌표 기반 거리 계산
 - 매물 리스트/상세 응답 캐싱 전략
+- 커뮤니티 게시글/댓글 신고·모더레이션
+- 리뷰 사진 첨부

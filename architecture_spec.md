@@ -51,14 +51,18 @@ backend/
 │   │   ├── property_amenity.py
 │   │   ├── favorite.py
 │   │   ├── recent_view.py
-│   │   └── compare_history.py   # CompareHistory, CompareHistoryItem
+│   │   ├── compare_history.py   # CompareHistory, CompareHistoryItem
+│   │   ├── review.py
+│   │   └── community.py         # CommunityPost, CommunityComment
 │   ├── api/                  # 블루프린트 (api_spec.md 도메인 매핑)
 │   │   ├── auth/              # 1. 카카오 로그인/로그아웃/토큰재발급
 │   │   ├── regions/           # 2. 지역 목록
 │   │   ├── properties/        # 3. 매물 리스트/상세/편의시설/경로
 │   │   ├── favorites/         # 4. 즐겨찾기
 │   │   ├── compare/           # 5. 매물 비교
-│   │   └── users/             # 6. 마이페이지(내 정보/최근본/비교이력/알림설정)
+│   │   ├── users/             # 6. 마이페이지(내 정보/최근본/비교이력/알림설정)
+│   │   ├── reviews/           # 9. 매물 리뷰
+│   │   └── community/         # 10. 커뮤니티(게시글/댓글)
 │   ├── services/              # 도메인 로직 (카카오 토큰 교환, 경로 계산, 비교 bestFields 산출 등)
 │   ├── schemas/               # 요청/응답 직렬화·검증 (marshmallow 또는 pydantic)
 │   └── errors.py              # 공통 에러 핸들러 (api_spec.md 7절 에러 포맷)
@@ -79,6 +83,8 @@ backend/
 | `api/favorites` | `GET /favorites`, `POST /favorites`, `DELETE /favorites/{propertyId}` |
 | `api/compare` | `POST /properties/compare` |
 | `api/users` | `GET /users/me`, `GET /users/me/recent-viewed`, `GET /users/me/compare-history`, `GET`/`PATCH /users/me/notification-settings` |
+| `api/reviews` | `GET/POST /properties/{propertyId}/reviews`, `DELETE /reviews/{reviewId}` |
+| `api/community` | `GET/POST /community/posts`, `GET/DELETE /community/posts/{postId}`, `POST /community/posts/{postId}/comments`, `DELETE /community/comments/{commentId}` |
 
 ### 2.2 모델 ↔ ERD 테이블 대응
 
@@ -92,6 +98,8 @@ backend/
 | `models/favorite.py` | `favorite` |
 | `models/recent_view.py` | `recent_view` |
 | `models/compare_history.py` | `compare_history`, `compare_history_item` |
+| `models/review.py` | `review` |
+| `models/community.py` | `community_post`, `community_comment` |
 
 ### 2.3 인증 흐름
 
@@ -117,7 +125,8 @@ frontend/
 │   │   ├── CompareSelect/          # 08 매물비교 선택
 │   │   ├── CompareTable/           # 09 매물비교 테이블
 │   │   ├── Favorites/              # favorites / favorites-empty
-│   │   └── MyPage/                 # 10 마이페이지
+│   │   ├── MyPage/                 # 10 마이페이지
+│   │   └── Community/              # 11 게시글목록 / 12 게시글상세 / 13 글쓰기
 │   ├── components/             # 공통 컴포넌트 (하단 네비게이션 바, 매물 카드, 지도 마커, 필터 칩 등)
 │   ├── api/                    # axios 인스턴스 + 도메인별 클라이언트 (api_spec.md 대응)
 │   │   ├── client.ts               # baseURL `/api/v1`, 인터셉터(토큰 첨부, 401 재발급)
@@ -126,7 +135,9 @@ frontend/
 │   │   ├── properties.ts
 │   │   ├── favorites.ts
 │   │   ├── compare.ts
-│   │   └── users.ts
+│   │   ├── users.ts
+│   │   ├── reviews.ts
+│   │   └── community.ts
 │   ├── hooks/                  # 커스텀 훅 (즐겨찾기 토글, 인증 상태, 정렬/필터 상태 등)
 │   ├── store/                  # 전역 상태 (인증 토큰, 선택 지역/정렬 등)
 │   ├── router/                 # 라우팅 정의 (하단 네비게이션 실제 화면 전환 연결 포함)
@@ -149,16 +160,17 @@ frontend/
 | `pages/CompareTable` | 09 |
 | `pages/Favorites` | favorites, favorites-empty |
 | `pages/MyPage` | 10 |
+| `pages/Community` | 11, 12, 13 |
 
 ### 3.2 인증/라우팅
 
 - Access/Refresh JWT는 `store`(전역 상태) + 안전한 저장소(예: httpOnly 쿠키 또는 메모리+refresh 전략)에 보관
 - 비로그인 시 `01 Landing`으로 리다이렉트하는 라우팅 가드 적용
-- 하단 네비게이션 바(홈/즐겨찾기/마이페이지)는 Figma 프로토타입에서 시각 요소만 존재하므로, `router/`에서 실제 화면 전환을 연결해야 함 (`feature_spec.md` 공통 컴포넌트 절 참고)
+- 하단 네비게이션 바(홈/즐겨찾기/커뮤니티/마이페이지)는 Figma 프로토타입에서 시각 요소만 존재하므로, `router/`에서 실제 화면 전환을 연결해야 함 (`feature_spec.md` 공통 컴포넌트 절 참고)
 
 ### 3.3 MVP 범위 제한
 
-`planning_spec.md`의 MVP 제외 항목(실시간 채팅/문의, 결제, 리뷰, 관리자 페이지, 회원탈퇴)은 프론트 구조에도 포함하지 않는다. "집주인에게 문의하기" 버튼은 UI만 존재하고 별도 페이지/API 연동 없음.
+`planning_spec.md`의 MVP 제외 항목(실시간 채팅/문의, 결제, 관리자 페이지, 회원탈퇴)은 프론트 구조에도 포함하지 않는다. "집주인에게 문의하기" 버튼은 UI만 존재하고 별도 페이지/API 연동 없음. 리뷰·커뮤니티 화면/구조는 이제 MVP 포함 범위이며 §3.1 페이지 목록에 포함된다.
 
 ---
 
